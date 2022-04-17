@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
@@ -9,7 +9,7 @@ client.defaults.withCredentials = true;
 const multipartHeader = { 'Content-Type': 'multipart/form-data' };
 const applicationHeader = { 'Content-Type': 'application/json' };
 
-async function request<T>(method: Method, url: string, data?: unknown, multipart?: boolean): Promise<AxiosResponse<T>> {
+async function request<T>(method: Method, url: string, data?: T, multipart?: boolean) {
   const contentType = multipart ? multipartHeader : applicationHeader;
   const res = await client({
     headers: {
@@ -19,7 +19,7 @@ async function request<T>(method: Method, url: string, data?: unknown, multipart
     url,
     data,
   });
-  return res;
+  return res.data;
 }
 
 export default request;

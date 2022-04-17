@@ -20,18 +20,19 @@
     "project": ["./tsconfig.json"]
   },
   "rules": {
-   "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
-   "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }], // allow jsx syntax in js files (for next.js project)
-   "react/jsx-props-no-spreading": "off",
-   "react/function-component-definition": "off",
-   "react/prop-types": "off",
-   "import/prefer-default-export": "off", // allow export { Function }
-   "import/extensions": "off", // allow skip .tsx
-   "import/export": "off", // export * from ~~
-   "jsx-a11y/anchor-is-valid": "off", // <Link><a></Link> in nextjs
-   "consistent-return": "off",
-   "no-restricted-exports": "off", // export { default }
-   "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }], // allow jsx syntax in js files (for next.js project)
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off", // allow export { Function }
+    "import/extensions": "off", // allow skip .tsx
+    "import/export": "off", // export * from ~~
+    "jsx-a11y/anchor-is-valid": "off", // <Link><a></Link> in nextjs
+    "consistent-return": "off",
+    "no-restricted-exports": "off", // export { default }
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   },
   "ignorePatterns": ["next.config.js"]
 }
