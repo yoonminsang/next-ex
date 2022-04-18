@@ -6,7 +6,6 @@ import { NextPageWithLayout } from '@/types/common';
 import { useGetPosts } from '@/hooks/queries/post';
 import { QUERY_POST_KEY } from '@/constants/queries/query-post-key';
 
-// TODO: posts가 없으면 서버에러인데 어떻게 처리를 해야될까??
 const Home: NextPageWithLayout = () => {
   const { data: posts } = useGetPosts();
   if (!posts) return null;
@@ -18,7 +17,13 @@ export default Home;
 Home.layout = 'MainLayout';
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        suspense: true,
+      },
+    },
+  });
 
   await queryClient.prefetchQuery([QUERY_POST_KEY.getPosts], API_POST.getPostsApi);
 
